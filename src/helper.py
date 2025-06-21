@@ -1,4 +1,5 @@
 from pypdf import PdfReader
+from langchain_google_genai import ChatGoogleGenerativeAI
 # from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_community.vectorstores import FAISS
@@ -100,7 +101,7 @@ def get_conversational_chain():
     prompt_template = base_prompt
     
     # Define the language model
-    model = ChatGoogleGenerativeAI(model="models/gemini-1.5-pro-latest", temperature=0.3)
+    model = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0.3)
     logging.info('import successfully the  llm model')
 
     # Create a prompt template
