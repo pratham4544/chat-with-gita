@@ -153,32 +153,32 @@ def user_input(user_question):
         logging.error(f"{e} so we print in simple format without any container")
         st.write(response)
 
-    st.write("Generationg img for you...")
+    # st.write("Generationg img for you...")
        
-        # img_prompt = text_to_img_prompt(response=response)
-    logging.info("image generation started using huggingface api ")
-    try:
-        image = img_generator(img_prompt=example)
-        logging.info('Image generated successfully')
-        st.image(image)
-    except Exception as e:
-        logging.warning('Primary image generation failed, attempting alternative method')
-        logging.error(e)
-        try:
-            image = img_generator_2(img_prompt=example)
-            logging.info('Image generated from alternative model successfully')
-            st.image(image)
-        except Exception as e:
-            st.error("Sorry for the inconvenience, but the server is down due to heavy traffic.")
-            logging.error(e)
+    #     # img_prompt = text_to_img_prompt(response=response)
+    # logging.info("image generation started using huggingface api ")
+    # try:
+    #     image = img_generator(img_prompt=example)
+    #     logging.info('Image generated successfully')
+    #     st.image(image)
+    # except Exception as e:
+    #     logging.warning('Primary image generation failed, attempting alternative method')
+    #     logging.error(e)
+    #     try:
+    #         image = img_generator_2(img_prompt=example)
+    #         logging.info('Image generated from alternative model successfully')
+    #         st.image(image)
+    #     except Exception as e:
+    #         st.error("Sorry for the inconvenience, but the server is down due to heavy traffic.")
+    #         logging.error(e)
     
 
     # Predict the next question
-    next_question = predict_next_question(user_question)
-    logging.info('next question predict successfully')
-    # Display the predicted next question in the sidebar
-    st.sidebar.header("Predicted Next Question")
-    st.sidebar.write(next_question)
+    # next_question = predict_next_question(user_question)
+    # logging.info('next question predict successfully')
+    # # Display the predicted next question in the sidebar
+    # st.sidebar.header("Predicted Next Question")
+    # st.sidebar.write(next_question)
     
     return response
 
@@ -236,7 +236,7 @@ def img_generator(img_prompt):
     logging.info("Image generator function started")
     
     API_URL = "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0"
-    headers = {"Authorization": 'Bearer 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'}
+    headers = {"Authorization": 'Bearer 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'}
 
     logging.info("Sending request to image generation API")
     image_bytes = query_image_generation(API_URL, headers, {"inputs": img_prompt})
